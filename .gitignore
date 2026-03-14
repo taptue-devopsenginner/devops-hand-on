@@ -1,0 +1,3 @@
+.DEVOPS-END-TO-END /
+*.tfstate
+*.tfstate*
