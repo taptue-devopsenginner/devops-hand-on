@@ -3,25 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DevOps Frontend</title>
+  <title>Sunshine School Clock</title>
   <link rel="stylesheet" href="/static/style.css" />
 </head>
 <body>
-  <div class="hero">
-    <div class="glass-card">
-      <div class="title-row">
-        <div class="dot red"></div>
-        <div class="dot yellow"></div>
-        <div class="dot green"></div>
+  <div class="page">
+    <header class="hero-header">
+      <div>
+        <p class="eyebrow">Morning Dashboard</p>
+        <h1>Sunshine School Run</h1>
+        <p class="subtitle">Analog clock, cheerful sun, and kids on their way to school.</p>
       </div>
-      <h1>DevOps Time Portal</h1>
-      <p class="subtitle">Ready to build, deploy, and run your Python container app.</p>
-      <div class="time-card">
-        <span class="label">Current time:</span>
-        <strong>{{ current_time }}</strong>
+      <div class="time-pill">{{ current_time }}</div>
+    </header>
+
+    <section class="scene">
+      <div class="sky">
+        <div class="sun"></div>
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
       </div>
-      <a class="button" href="/api/time">API: /api/time</a>
-    </div>
+      <div class="ground">
+        <div class="tree"></div>
+        <div class="hill"></div>
+        <div class="kids-row">
+          <div class="kid kid1"></div>
+          <div class="kid kid2"></div>
+          <div class="kid kid3"></div>
+        </div>
+      </div>
+      <div class="clock-card">
+        <div class="clock" id="clock" aria-label="Analog school clock">
+          <div class="minute-hand" id="minute-hand"></div>
+          <div class="hour-hand" id="hour-hand"></div>
+          <div class="center-dot"></div>
+          <div class="tick tick-12"></div>
+          <div class="tick tick-3"></div>
+          <div class="tick tick-6"></div>
+          <div class="tick tick-9"></div>
+        </div>
+        <div class="clock-label">School Bell Clock</div>
+      </div>
+    </section>
   </div>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const sec = now.getSeconds();
+      const min = now.getMinutes();
+      const hr = now.getHours() % 12;
+      const minuteAngle = min * 6 + sec * 0.1;
+      const hourAngle = hr * 30 + min * 0.5;
+      document.getElementById('minute-hand').style.transform = `rotate(${minuteAngle}deg)`;
+      document.getElementById('hour-hand').style.transform = `rotate(${hourAngle}deg)`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
 </body>
 </html>
