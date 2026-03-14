@@ -14,7 +14,7 @@ provider "minikube" {
 resource "minikube_cluster" "minikube_docker" {
     driver = "docker"
     cluster_name = "complete-devops-hand-on"
-    nodes = 2
+    nodes = 4
     cpus = 2
     memory = "5000mb"
     addons = [

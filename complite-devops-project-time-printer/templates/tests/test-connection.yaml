@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "complite-devops-project-time-printer.fullname" . }}-test-connection"
+  labels:
+    {{- include "complite-devops-project-time-printer.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['{{ include "complite-devops-project-time-printer.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never
