@@ -1,0 +1,33 @@
+---
+
+
+name: complete devops hand on
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set short SHA
+        run: |
+          echo "SHORT_SHA=$(echo ${GITHUB_SHA} | cut -c1-7)" >> $GITHUB_ENV
+
+      - name: Build Docker image
+        run: |
+            docker build -t 130219922021/complete-decops-project:${{ env.SHORT_SHA }} .
+
+      - name: Docker login
+        run: echo ${{ secrets.DOCKER_TOKEN }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+
+      - name: Push Docker image to Docker Hub
+        run: |
+            docker push 130219922021/complete-decops-project:${{ env.SHORT_SHA }}
+     
