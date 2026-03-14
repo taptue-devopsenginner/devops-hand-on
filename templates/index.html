@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DevOps Frontend</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="hero">
+    <div class="glass-card">
+      <div class="title-row">
+        <div class="dot red"></div>
+        <div class="dot yellow"></div>
+        <div class="dot green"></div>
+      </div>
+      <h1>DevOps Time Portal</h1>
+      <p class="subtitle">Ready to build, deploy, and run your Python container app.</p>
+      <div class="time-card">
+        <span class="label">Current time:</span>
+        <strong>{{ current_time }}</strong>
+      </div>
+      <a class="button" href="/api/time">API: /api/time</a>
+    </div>
+  </div>
+</body>
+</html>
