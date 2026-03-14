@@ -10,8 +10,5 @@ ingress:
 serviceAccount:
   enabled: false
 autoscaling:
-  enabled: true
-  minReplicas: 3  
-  maxReplicas: 10
-  targetCPUUtilizationPercentage: 60
-
+  enabled: false
+  
