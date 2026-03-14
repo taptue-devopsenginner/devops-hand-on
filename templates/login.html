@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bank of America Style Login</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="login-page">
+    <div class="login-shell">
+      <div class="brand-bar">
+        <div class="brand">Bank of America</div>
+        <div class="brand-sub">Small business login</div>
+      </div>
+      <div class="login-body">
+        <h1>Sign in</h1>
+        <p class="hint">Access your account and manage your resources.</p>
+        {% if error %}
+          <div class="error">{{ error }}</div>
+        {% endif %}
+        <form method="post" class="login-form">
+          <label for="username">Username</label>
+          <input id="username" name="username" type="text" placeholder="Enter user ID" required autofocus />
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" placeholder="Enter password" required />
+          <button type="submit">Sign In</button>
+        </form>
+        <div class="footnote">
+          <a href="#">Forgot username?</a>
+          <a href="#">Forgot password?</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
