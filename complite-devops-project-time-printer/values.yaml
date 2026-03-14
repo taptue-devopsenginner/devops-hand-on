@@ -1,7 +1,7 @@
 image:
   repository: 130219922021/complete-devops-project
   pullPolicy: IfNotPresent
-  tag: latest
+  tag: 1f58124
 service:
   type: ClusterIP
   port: 8080
